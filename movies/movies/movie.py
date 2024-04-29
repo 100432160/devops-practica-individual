@@ -1,3 +1,5 @@
+""" Modulo que contiene la definicion de una pelicula y 
+    metodos para acceder a la BD """
 import os
 import sqlite3
 import uuid
@@ -7,6 +9,7 @@ from pydantic import BaseModel, Field
 
 
 class Movie(BaseModel):
+    """ Clase pelicula """
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     title: str
     duration: int
@@ -14,6 +17,7 @@ class Movie(BaseModel):
 
     @classmethod
     def get_by_id(cls, movie_id: str):
+        """ Obtener pelicula por su ID """
         movie = None
         con = sqlite3.connect(os.getenv("DATABASE_NAME", "movies.db"))
         con.row_factory = sqlite3.Row
@@ -31,6 +35,7 @@ class Movie(BaseModel):
 
     @classmethod
     def get_by_title(cls, title: str):
+        """ Obtener pelicula por su titulo """
         movie = None
         con = sqlite3.connect(os.getenv("DATABASE_NAME", "movies.db"))
         con.row_factory = sqlite3.Row
@@ -48,6 +53,7 @@ class Movie(BaseModel):
 
     @classmethod
     def list(cls) -> List["Movie"]:
+        """ Listar peliculas """
         con = sqlite3.connect(os.getenv("DATABASE_NAME", "movies.db"))
         con.row_factory = sqlite3.Row
 
@@ -61,6 +67,7 @@ class Movie(BaseModel):
         return movies
 
     def save(self) -> "Movie":
+        """ Añadir pelicula a la BD """
         with sqlite3.connect(os.getenv("DATABASE_NAME", "movies.db")) as con:
             cur = con.cursor()
             cur.execute(
@@ -73,6 +80,7 @@ class Movie(BaseModel):
 
     @classmethod
     def create_table(cls, database_name="movies.db"):
+        """ Crear la tabla de peliculas """
         conn = sqlite3.connect(database_name)
 
         conn.execute(
@@ -82,6 +90,7 @@ class Movie(BaseModel):
 
     @classmethod
     def delete_rows(cls, database_name="movies.db"):
+        """ Eliminar filas de la tabla peliculas """
         conn = sqlite3.connect(database_name)
 
         conn.execute("DELETE FROM movies")
