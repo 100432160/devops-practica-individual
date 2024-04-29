@@ -1,4 +1,4 @@
-""" Modulo que contiene la definicion de una pelicula y 
+""" Modulo que contiene la definicion de una pelicula y
     metodos para acceder a la BD """
 import os
 import sqlite3

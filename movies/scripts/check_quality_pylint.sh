@@ -20,4 +20,5 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+echo "No pylint issues found in the Python code"
 exit 0

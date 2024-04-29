@@ -3,6 +3,7 @@ from typing import List
 from pydantic import BaseModel
 from movies.movie import Movie
 
+
 class CreateMovieCommand(BaseModel):
     """ Clase para crear una pelicula """
     title: str
