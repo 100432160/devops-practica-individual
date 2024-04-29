@@ -7,17 +7,13 @@ app = Flask(__name__)
 
 @app.route("/create-movie/", methods=["POST"])
 def create_article():
-    cmd = CreateMovieCommand(
-        **request.json
-    )
+    cmd = CreateMovieCommand(**request.json)
     return jsonify(cmd.execute().dict())
 
 
 @app.route("/movie/<movie_id>/", methods=["GET"])
 def get_movie(movie_id):
-    query = GetMovieById(
-        id=movie_id
-    )
+    query = GetMovieById(id=movie_id)
     return jsonify(query.execute().dict())
 
 
