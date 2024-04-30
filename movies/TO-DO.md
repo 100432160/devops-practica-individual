@@ -21,8 +21,8 @@
 ### Tareas
 
 - [x] Formatear código (black)
-- [ ] Chequear estándares (pytlint, flake8, ruff)
-- [ ] Ejecutar pruebas (pytest)
-- [ ] Ejecutar cobertura del código (pytest)
-- [ ] Ejecutar otras pruebas (bandit, radon)
+- [x] Chequear estándares (pytlint, flake8, ruff)
+- [x] Ejecutar pruebas (pytest)
+- [x] Ejecutar cobertura del código (pytest)
+- [x] Ejecutar otras pruebas (bandit, radon)
 - [ ] Desplegar opcional (Heroku)
