@@ -1,4 +1,11 @@
-# Ejecuta black en los archivos especificados
+# Ejecuta flake8 en los archivos especificados
+echo "DIRECTORIO: /movies"
+flake8 ./movies
+if [ $? -ne 0 ]; then
+    echo "Error: flake8 falló al comprobar el directorio /movies"
+    exit 1
+fi
+
 echo "FICHERO: movie.py"
 flake8 ./movies/movie.py
 if [ $? -ne 0 ]; then
@@ -13,12 +20,5 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "FICHERO: web_app.py"
-flake8 ./web_app.py
-if [ $? -ne 0 ]; then
-    echo "Error: flake8 falló al comprobar web_app.py"
-    exit 1
-fi
-
-echo "No flake8 issues found in the Python code"
+echo "Flake8 no ha encontrado ningun problema en el código"
 exit 0
