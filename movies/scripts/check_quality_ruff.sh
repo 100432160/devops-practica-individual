@@ -1,4 +1,4 @@
-# Ejecuta black en los archivos especificados
+# Ejecuta ruff en los archivos especificados
 echo "DIRECTORIO: /movies"
 ruff check ./movies
 if [ $? -ne 0 ]; then
